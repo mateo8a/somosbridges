@@ -2,6 +2,7 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'Somos Bridges'
 theme = 'marketing-site'
+relativeURLS = true
 
 [module]
   [[module.mounts]]  

@@ -1,0 +1,9 @@
+<head>
+    <title>{{ .Title }}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Website meta description for google search results go here" />    
+
+    {{ $options := (dict "targetPath" "css/styles.css" "outputStyle" "compressed") }}
+    {{ $style := resources.Get "sass/main.scss" | toCSS  $options | minify }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" media="screen">
+</head>
