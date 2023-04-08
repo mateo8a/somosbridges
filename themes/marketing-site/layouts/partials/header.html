@@ -1,11 +1,19 @@
 <header>  
     <nav class="navbar" role="navigation">  
-        <div class="navbar__left">  
-            <a href="/"><strong>blogsite.com</strong></a>  
-        </div>  
-        <div class="navbar__right">  
-            <a href="/blog">Blogs</a>  
-            <a href="/categories">Categories</a>  
+        <div>  
+            <a href="/"><strong>Somos Bridges en {{ i18n "mexico" }} </strong></a>
+        </div>
+        <div>
+            <a href="/">Home ({{ .Lang }})</a>
+            <a href="{{ relLangURL `/services` }}">Services</a>
+            <a href="{{ relLangURL `/contact` }}">Contact Us</a>
+            <ul>
+                {{ range .Translations }}
+                <li>
+                  <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}</a>
+                </li>
+                {{ end }}
+              </ul>
         </div>  
     </nav>  
 </header>

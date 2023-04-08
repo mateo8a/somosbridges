@@ -1,8 +1,20 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'Somos Bridges'
 theme = 'marketing-site'
 relativeURLS = true
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
+[languages]
+  [languages.en]
+    title = 'Somos Bridges'
+    languageName = 'English'
+    [languages.en.params]
+      linkedin = 'https://linkedin.com/whoever'
+  [languages.es]
+    title = 'Somos Bridges'
+    languageName = 'Español'
+    [languages.es.params]
+      linkedin = 'https://linkedin.com/es/whoever'
 
 [module]
   [[module.mounts]]  
