@@ -16,4 +16,9 @@
               </ul>
         </div>  
     </nav>  
+    <div>
+        {{ range site.Menus.main }}
+            <p>{{ .Name }}</p>
+        {{ end }}
+    </div>
 </header>
