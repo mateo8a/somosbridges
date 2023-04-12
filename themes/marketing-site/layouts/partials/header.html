@@ -18,8 +18,8 @@
     </nav>  
     <div>
         {{ range site.Menus.main }}
-            <p>{{ .Name }} <a href="{{ .URL }}">{{ .Name }}</a></p>
-            {{- with .Children }}
+            <p>{{ .Name }} <a href="{{ .URL }}">{{ .Name }}</a> <i class='fas fa-info'></i><i class="fab fa-github"></i> </p>
+            {{ with .Children }}
                 {{ range . }}
                     <p>{{ .Name }}<a href="{{ .URL }}">{{ .Name }}</a></p>
                 {{ end }}

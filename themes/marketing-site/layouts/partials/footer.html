@@ -7,7 +7,9 @@
   <!-- JavaScript and dependencies -->
 
   {{ $bootstrap := resources.Get "js/bootstrap.bundle.min.js" }}
-  {{ $js := slice $bootstrap | resources.Concat "js/bundle.js" | resources.Minify }}
+  {{ $fontawesome := resources.Get "js/fontawesome.min.js" }}
+
+  {{ $js := slice $bootstrap $fontawesome | resources.Concat "js/bundle.js" | resources.Minify }}
 
   <script src="{{$js.RelPermalink}}" defer></script>
 </footer>
