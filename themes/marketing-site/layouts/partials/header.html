@@ -1,35 +1,44 @@
 <header>  
-    <nav class="navbar navbar-expand position-fixed" role="navigation">   
-        <a class="navbar-brand" href="{{ relLangURL `/` }}"><strong>Somos Bridges en {{ i18n "mexico" }} </strong></a>
-        <div>
-            <ul class="navbar-nav mr-auto">
-                {{ range site.Menus.main }}
-                    {{ $url := .URL }}
-                    {{ $name := .Name }}
-                    {{ with .Children }}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ $url }}">{{ $name }}</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {{ range . }}
-                                <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a></li>
-                            {{ end }}
-                        </ul>
-                    </li>
-                    {{ else }}
+    <nav class="navbar navbar-expand fixed-top bg-light" role="navigation">   
+        <div class="d-flex justify-content-between navbar-div">
+            <a class="navbar-brand me-auto" href="{{ relLangURL `/` }}"><strong>Somos Bridges en {{ i18n "mexico" }} </strong></a>
+            <div class="nav-subdiv-left">
+                <ul class="navbar-nav mr-auto">
+                    {{ range site.Menus.main }}
+                        {{ $url := .URL }}
+                        {{ $name := .Name }}
+                        {{ with .Children }}
+                            <li class="nav-item dropdown-element">
+                                <div class="btn-group">
+                                <a class="nav-link" id="dropdown-button-left" href="{{ $url }}">{{ $name }}</a>
+                                <a class="nav-link dropdown-toggle dropdown-toggle-split" id="dropdown-button-right" href="#" role="button" data-bs-toggle="dropdown">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {{ range . }}
+                                        <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a></li>
+                                    {{ end }}
+                                </ul>
+                                </div>
+                            </li>
+                        {{ else }}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+                            </li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="nav-subdiv-right">
+                <ul class="navbar-nav mr-auto">
+                    {{ range .Translations }}
+                        {{ $language := cond (eq .Lang "en") "English" "Español" }}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+                            <a class="nav-link" href="{{ .Permalink }}">{{ $language }}</a>
                         </li>
                     {{ end }}
-                {{ end }}
-                {{ range .Translations }}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}</a>
-                    </li>
-                {{ end }}
-            </ul>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
