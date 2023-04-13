@@ -1,29 +1,35 @@
 <header>  
-    <nav class="navbar" role="navigation">  
-        <div>  
-            <a href="/"><strong>Somos Bridges en {{ i18n "mexico" }} </strong></a>
-        </div>
+    <nav class="navbar navbar-expand position-fixed" role="navigation">   
+        <a class="navbar-brand" href="{{ relLangURL `/` }}"><strong>Somos Bridges en {{ i18n "mexico" }} </strong></a>
         <div>
-            <a href="/">Home ({{ .Lang }})</a>
-            <a href="{{ relLangURL `/services` }}">Services</a>
-            <a href="{{ relLangURL `/contact` }}">Contact Us</a>
-            <ul>
+            <ul class="navbar-nav mr-auto">
+                {{ range site.Menus.main }}
+                    {{ $url := .URL }}
+                    {{ $name := .Name }}
+                    {{ with .Children }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ $url }}">{{ $name }}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"></a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {{ range . }}
+                                <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a></li>
+                            {{ end }}
+                        </ul>
+                    </li>
+                    {{ else }}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+                        </li>
+                    {{ end }}
+                {{ end }}
                 {{ range .Translations }}
-                <li>
-                  <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}</a>
+                    </li>
                 {{ end }}
-              </ul>
-        </div>  
-    </nav>  
-    <div>
-        {{ range site.Menus.main }}
-            <p>{{ .Name }} <a href="{{ .URL }}">{{ .Name }}</a> <i class='fas fa-info'></i><i class="fab fa-github"></i> </p>
-            {{ with .Children }}
-                {{ range . }}
-                    <p>{{ .Name }}<a href="{{ .URL }}">{{ .Name }}</a></p>
-                {{ end }}
-            {{ end }}
-        {{ end }}
-    </div>
+            </ul>
+        </div>
+    </nav>
 </header>

@@ -5,6 +5,6 @@ draft: false
 menu:
   main:
     name: "Servicios"
-    weight: 2
+    weight: 10
 ---
 Soy servicios

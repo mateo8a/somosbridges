@@ -5,7 +5,7 @@ draft: false
 menu:
   main:
     name: "Services"
-    weight: 2
+    weight: 10
 ---
 
 I am services
