@@ -3,6 +3,10 @@ body {
     background-color: aqua;
 }
 
+#content {
+    padding-top: 0px;
+}
+
 nav {
     margin: 0px;
 }
@@ -21,14 +25,18 @@ nav {
     padding-right: 10px;
 }
 
-.dropdown-element {
-    position: relative;
-}
-
 #dropdown-button-left {
     padding-right: 0;
 }
 
 #dropdown-button-right {
     padding-left: 6px;
+}
+
+#collapseExample {
+    top: 50px;
+}
+
+#topmost-div {
+    padding-top: 65px;
 }

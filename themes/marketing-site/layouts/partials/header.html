@@ -8,17 +8,12 @@
                         {{ $url := .URL }}
                         {{ $name := .Name }}
                         {{ with .Children }}
-                            <li class="nav-item dropdown-element">
+                            <li class="nav-item">
                                 <div class="btn-group">
-                                <a class="nav-link" id="dropdown-button-left" href="{{ $url }}">{{ $name }}</a>
-                                <a class="nav-link dropdown-toggle dropdown-toggle-split" id="dropdown-button-right" href="#" role="button" data-bs-toggle="dropdown">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    {{ range . }}
-                                        <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a></li>
-                                    {{ end }}
-                                </ul>
+                                    <a class="nav-link" id="dropdown-button-left" href="{{ $url }}">{{ $name }}</a>
+                                    <button class="navbar-toggle" id="dropdown-button-right" href="#collapseExample" type="button" data-bs-toggle="collapse">
+                                        <!-- <i class="fa-solid fa-caret-down"></i> -->
+                                    </button>
                                 </div>
                             </li>
                         {{ else }}
@@ -41,4 +36,18 @@
             </div>
         </div>
     </nav>
+    <div id="topmost-div"></div>
+    <div class="collapse" id="collapseExample">
+        {{ range site.Menus.main }}
+            {{ $url := .URL }}
+            {{ $name := .Name }}
+            {{ with .Children }}
+            <ul class="navbar-nav">
+                {{ range . }}
+                    <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        </ul>
+    </div>
 </header>
