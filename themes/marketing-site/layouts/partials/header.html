@@ -1,8 +1,12 @@
 <header>
     <div class="fixed-top">
-        <nav class="navbar navbar-expand bg-light" role="navigation">   
-            <div class="d-flex justify-content-between navbar-div">
+        <nav class="navbar navbar-expand-md bg-light" role="navigation">   
+            <div class="container-fluid navbar-div">
                 <a class="navbar-brand me-auto" href="{{ relLangURL `/` }}"><strong>Somos Bridges en {{ i18n "mexico" }} </strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
                 <div class="nav-subdiv-left">
                     <ul class="navbar-nav mr-auto">
                         {{ range site.Menus.main }}
@@ -32,6 +36,7 @@
                             </li>
                         {{ end }}
                     </ul>
+                </div>
                 </div>
             </div>
         </nav>

@@ -15,9 +15,17 @@ nav {
     padding-left: 10px;
 }
 
+#mainNavbar {
+    max-width: 470px;
+}
+
 .navbar-div {
     margin: 0;
     width: 100%;
+}
+
+.nav-subdiv-left {
+    padding-left: 7%;
 }
 
 .nav-subdiv-right {
