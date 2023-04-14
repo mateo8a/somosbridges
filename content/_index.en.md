@@ -7,5 +7,6 @@ menu:
   main:
     weight: 1
 ---
-# Welcome to My Multi-Author Blog  
-Hola, devs! Welcome to my site.  
+# Somos Bridges  
+
+Specialists in Mexican immigration law
