@@ -1,0 +1,39 @@
+nav {
+    margin: 0px;
+}
+
+.navbar-brand {
+    padding-left: 10px;
+}
+
+#navbar-div {
+    margin: 0;
+    width: 100%;
+}
+
+.nav-subdiv-right {
+    padding-left: 7%;
+    padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .nav-subdiv-right {
+        padding-left: 0;
+    }
+  }
+
+#dropdown-button-left {
+    padding-right: 0;
+}
+
+#dropdown-button-right {
+    padding-left: 6px;
+}
+
+#collapsableMenuServices {
+    background-color: aquamarine;
+}
+
+#topmost-div {
+    padding-top: 65px;
+}
